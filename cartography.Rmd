@@ -1,0 +1,31 @@
+---
+title: "Cartography"
+author: "Jake Eisaguirre"
+date: "9/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(RColorBrewer)
+library(rgeos)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+library(spData)
+library(spDataLarge)
+library(tidyverse)
+library(tmap)
+```
+```{r}
+
+map_data <- ne_countries(country = 'united states of america', scale = 'large', returnclass = 'sf')
+
+ggplot() +
+  geom_sf(data = map_data) +
+  coord_sf(xlim = c(-120.69999999999999, -118.75), ylim = c(33.1125, 34.9), expand = FALSE)
+  
+
+```
+
